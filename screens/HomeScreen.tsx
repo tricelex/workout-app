@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, View, Text, Pressable} from "react-native";
+import {FlatList, Pressable, StyleSheet, Text, View} from "react-native";
 import {NativeStackHeaderProps} from "@react-navigation/native-stack";
 
 import data from "../data.json";
@@ -16,7 +16,8 @@ export default function HomeScreen({navigation}: NativeStackHeaderProps) {
 
                 renderItem={({item}) => {
                     return (
-                        <Pressable onPress={() => alert(`I am pressed - ${item.name}`)}>
+                        <Pressable onPress={() =>
+                            navigation.navigate('WorkoutDetail', {slug: item.slug})}>
                             <WorkoutItem item={item}/>
                         </Pressable>
                     )
